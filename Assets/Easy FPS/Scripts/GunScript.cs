@@ -26,6 +26,8 @@ public class GunScript : MonoBehaviour {
 	[Tooltip("Preset value to tell how much bullets can one magazine carry.")]
 	public float amountOfBulletsPerLoad = 5;
 
+	public static bool showCrosshair = true;
+
 	private Transform player;
 	private Camera cameraComponent;
 	private Transform gunPlaceHolder;
@@ -183,8 +185,30 @@ public class GunScript : MonoBehaviour {
 	 * Also max speed is connected to the animator which will trigger the run animation.
 	 */
 	void Sprint(){// Running();  so i can find it with CTRL + F
+
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button0)) print(0);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button1)) print(1);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button2)) print(2);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button3)) print(3);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button4)) print(4);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button5)) print(5);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button6)) print(6);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button7)) print(7);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button8)) print(8);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button9)) print(9);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button10)) print(10);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button11)) print(11);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button12)) print(12);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button13)) print(13);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button14)) print(14);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button15)) print(15);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button16)) print(16);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button17)) print(17);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button18)) print(18);
+		// if(Input.GetKeyDown(KeyCode.Joystick1Button19)) print(19);
+
 		if (Input.GetAxis ("Vertical") > 0 && Input.GetAxisRaw ("Fire2") == 0 && meeleAttack == false && Input.GetAxisRaw ("Fire1") == 0) {
-			if (Input.GetKeyDown (KeyCode.LeftShift)) {
+			if (Input.GetKeyDown (KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Joystick1Button4)) {
 				if (pmS.maxSpeed == walkingSpeed) {
 					pmS.maxSpeed = runningSpeed;//sets player movement peed to max
 
@@ -525,13 +549,14 @@ public class GunScript : MonoBehaviour {
 		if(mls && HUD_bullets)
 			HUD_bullets.text = bulletsIHave.ToString() + " - " + bulletsInTheGun.ToString();
 
-		DrawCrosshair();
+		if(showCrosshair)
+			DrawCrosshair();
 	}
 
 	[Header("Crosshair properties")]
 	public Texture horizontal_crosshair, vertical_crosshair;
 	public Vector2 top_pos_crosshair, bottom_pos_crosshair, left_pos_crosshair, right_pos_crosshair;
-	public Vector2 size_crosshair_vertical = new Vector2(1,1), size_crosshair_horizontal = new Vector2(1,1);
+	public Vector2 size_crosshair_vertical = new Vector2(0.5f,0.5f), size_crosshair_horizontal = new Vector2(0.5f,0.5f);
 	[HideInInspector]
 	public Vector2 expandValues_crosshair;
 	private float fadeout_value = 1;

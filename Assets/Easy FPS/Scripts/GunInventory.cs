@@ -185,11 +185,11 @@ public class GunInventory : MonoBehaviour {
 	 */
 	void OnGUI(){
 
-		if(currentGun){
-			for(int i = 0; i < gunsIHave.Count; i++){
-				DrawCorrespondingImage(i);
-			}
-		}
+		// if(currentGun){
+		// 	for(int i = 0; i < gunsIHave.Count; i++){
+		// 		DrawCorrespondingImage(i);
+		// 	}
+		// }
 
 	}
 
@@ -235,8 +235,6 @@ public class GunInventory : MonoBehaviour {
 					icons[_number]);
 			}
 		}
-
-
 
 	}
 

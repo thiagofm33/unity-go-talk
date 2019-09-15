@@ -4,11 +4,15 @@ using UnityEngine;
 public class Environment : MonoBehaviour {
 
   public GunInventory player;
-  public GameObject dummies;
+
+  private FadingLayer fadingLayer;
+
+  void Awake() {
+    fadingLayer = GameObject.Find("FadingLayer").GetComponent<FadingLayer>();
+  }
 
   void OnFinish() {
     player.SpawnWeapon();
-    dummies.SetActive(true);
   }
 
 }
