@@ -17,30 +17,24 @@ public class SlidesController : MonoBehaviour {
 
     Coroutine sliding;
 
+    public Slide CurrentSlide {
+      get { return slides[currentSlideIndex]; }
+    }
+
     void Awake() {
-      rt = transform.Find("Canvas/PresentationContainer").GetComponent<RectTransform>();
+      rt = transform.Find("PresentationContainer").GetComponent<RectTransform>();
       minX = (GameObject.FindGameObjectsWithTag("Slide").Length) * -800;
     }
 
     void Start() {
-      slides[currentSlideIndex].OnSlideEnter();
+      CurrentSlide.OnSlideEnter();
     }
 
-    private void Slide(int dir) {
+    public void Slide(int dir) {
       if(sliding != null || (dir == 1 && rt.anchoredPosition.x >= 0))
         return;
 
       sliding = StartCoroutine(DoSlide(dir));
-    }
-
-    void Update() {
-      if(Input.GetAxis("L2") > 0)
-          Slide(1);
-
-      if(Input.GetAxis("R2") > 0 && slides[currentSlideIndex].StepAvailable) {
-        if(!slides[currentSlideIndex].NextStep())
-          Slide(-1);
-      }
     }
 
     IEnumerator DoSlide(int dir) {
@@ -60,16 +54,16 @@ public class SlidesController : MonoBehaviour {
       float currentX = originX;
 
       while(ratio < 1) {
-          ratio += 6 * Time.deltaTime;
-          currentX = Mathf.Lerp(originX, targetX, ratio);
-          rt.anchoredPosition = new Vector2(currentX, rt.anchoredPosition.y);
-          yield return wait;
+        ratio += 6 * Time.deltaTime;
+        currentX = Mathf.Lerp(originX, targetX, ratio);
+        rt.anchoredPosition = new Vector2(currentX, rt.anchoredPosition.y);
+        yield return wait;
       }
 
-      if(rt.anchoredPosition.x <= minX) {
+      if(rt.anchoredPosition.x <= minX && transform.parent.name == "SlidesCamera") {
         player.SetActive(true);
         levelProps.SetActive(true);
-        gameObject.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
       }
 
       sliding = null;
