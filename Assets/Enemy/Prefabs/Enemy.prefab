@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2056632934}
   - component: {fileID: 2056632936}
-  - component: {fileID: 2056632935}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -75,14 +74,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2056632935
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056632933}
-  m_Enabled: 1
 --- !u!1 &1858885322068659311
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +132,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a800f3f5a6e444ab5a9e249a71c17562, type: 2}
+  - {fileID: 2100000, guid: 760b0aaabc9e0f56f9fa6611c613a90f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -234,7 +225,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 760b0aaabc9e0f56f9fa6611c613a90f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -389,7 +380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 760b0aaabc9e0f56f9fa6611c613a90f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -482,7 +473,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 760b0aaabc9e0f56f9fa6611c613a90f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -622,9 +613,11 @@ MonoBehaviour:
   deathParticles: {fileID: 9070257837807072856, guid: 0205cb735dd0d5544a9b922d2f16cfdf,
     type: 3}
   healthBar: {fileID: 0}
-  name: Manutonhao
+  name: The Final Boss
   speech: Eu vou quebrar a sua cara, maluko!!!
-  introduced: 0
+  introduced: 1
+  trueFinalBossTexture: {fileID: 2800000, guid: f48f88a80d2bb3631b9e0079d7ade811,
+    type: 3}
 --- !u!54 &2756688629882135220
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -699,7 +692,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 760b0aaabc9e0f56f9fa6611c613a90f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -792,7 +785,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7b8252f37c9df95798fea7318bf56d82, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

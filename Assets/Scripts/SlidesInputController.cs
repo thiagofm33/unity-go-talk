@@ -14,7 +14,7 @@ public class SlidesInputController : MonoBehaviour {
           currentSlidesController.Slide(1);
 
       if(Input.GetAxis("R2") > 0 && currentSlidesController.CurrentSlide.StepAvailable) {
-        if(!currentSlidesController.CurrentSlide.NextStep())
+        if(!currentSlidesController.isSliding && !currentSlidesController.CurrentSlide.NextStep())
           currentSlidesController.Slide(-1);
       }
     }

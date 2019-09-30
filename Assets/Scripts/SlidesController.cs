@@ -17,6 +17,10 @@ public class SlidesController : MonoBehaviour {
 
     Coroutine sliding;
 
+    public bool isSliding {
+      get { return (sliding != null); }
+    }
+
     public Slide CurrentSlide {
       get { return slides[currentSlideIndex]; }
     }

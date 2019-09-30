@@ -11,6 +11,8 @@ public class EnvSlide : MonoBehaviour {
     public void OnAnimationFinished() {
         FadingLayer fl = GameObject.Find("FadingLayer").GetComponent<FadingLayer>();
 
+        GameObject.Find("Soundtrack").GetComponent<Soundtrack>().FadeOut();
+
         fl.FadeAndExecute(Color.white, () => {
             cam.SetActive(false);
             GunScript.showCrosshair = true;

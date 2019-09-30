@@ -80,6 +80,7 @@ public class Enemy : MonoBehaviour {
         EnemyWave.current.Invoke("ShowEnvSlide", 1.5f);
       }
 
+      GameObject.Find("Environment").GetComponent<Environment>().Invoke("ActivateSlowMotion", 0.15f);
       GameObject.Destroy(Instantiate(deathParticles, transform.position, transform.rotation), 3);
       EnemyWave.current.UpdateWeakEnemiesCount();
       Destroy(gameObject);
@@ -99,6 +100,8 @@ public class Enemy : MonoBehaviour {
         transform.Find("Head").GetComponentInChildren<Renderer>().material.mainTexture = trueFinalBossTexture;
 
       FadingLayer fl = GameObject.Find("FadingLayer").GetComponent<FadingLayer>();
+
+      GameObject.Find("Soundtrack").GetComponent<Soundtrack>().PlayBossSoundtrack();
 
       fl.FadeAndExecute(Color.white, () => {
         transform.Find("Camera").gameObject.SetActive(false);

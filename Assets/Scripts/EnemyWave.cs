@@ -33,11 +33,15 @@ public class EnemyWave : MonoBehaviour
 
         weakEnemiesCount -= 1;
 
-        if(weakEnemiesCount <= 0)
+        if(weakEnemiesCount <= 0) {
+            GameObject.Find("Soundtrack").GetComponent<Soundtrack>().FadeOut(0.09f);
             Invoke("ActivateBoss", 1.5f);
+        }
     }
 
     private void ActivateWeakEnemies() {
+        GameObject.Find("Soundtrack").GetComponent<Soundtrack>().PlayEnemySoundtrack();
+
         foreach(GameObject enemy in weakEnemies)
             enemy.SetActive(true);
     }
