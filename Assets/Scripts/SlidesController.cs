@@ -27,7 +27,7 @@ public class SlidesController : MonoBehaviour {
 
     void Awake() {
       rt = transform.Find("PresentationContainer").GetComponent<RectTransform>();
-      minX = (GameObject.FindGameObjectsWithTag("Slide").Length) * -800;
+      minX = slides.Length * -800;
     }
 
     void Start() {
@@ -42,6 +42,8 @@ public class SlidesController : MonoBehaviour {
     }
 
     IEnumerator DoSlide(int dir) {
+      Slide previousSlide = slides[currentSlideIndex];
+
       currentSlideIndex += (dir*-1);
 
       if(currentSlideIndex < slides.Length)
@@ -70,6 +72,7 @@ public class SlidesController : MonoBehaviour {
         transform.parent.gameObject.SetActive(false);
       }
 
+      previousSlide.OnSlideExit();
       sliding = null;
     }
 

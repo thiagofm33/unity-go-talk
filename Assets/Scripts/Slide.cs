@@ -42,6 +42,11 @@ public class Slide : MonoBehaviour {
             graphic.color = graphic.color * new Color(1,1,1,0);
     }
 
+    public void OnSlideExit() {
+        if(video != null)
+            video.enabled = false;
+    }
+
     public bool NextStep() {
         if(currentStep == (steps.Length - 1))
             return false;
@@ -63,7 +68,7 @@ public class Slide : MonoBehaviour {
         float ratio = 0;
 
         while(ratio < 1) {
-            ratio += 1.8f * Time.deltaTime;
+            ratio += 2.4f * Time.deltaTime;
             newColor.a = Mathf.Lerp(0f,1f,ratio);
             graphic.color = newColor;
             yield return wait;
